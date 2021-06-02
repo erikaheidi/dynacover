@@ -1,0 +1,21 @@
+#!/usr/bin/php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Minicli\App;
+
+$config = [
+    'app_path' => __DIR__ . '/app/Command'
+];
+
+if (is_file(__DIR__ . '/credentials.php')) {
+    $config = array_merge($config, require __DIR__ . '/credentials.php');
+}
+
+$app = new App($config);
+$app->runCommand($argv);

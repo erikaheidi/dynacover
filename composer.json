@@ -1,0 +1,17 @@
+{
+  "name": "minicli/application",
+  "description": "Minicli Application Template",
+  "license": "MIT",
+  "homepage": "https://github.com/minicli/application",
+  "keywords": ["cli","command-line", "template"],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "minicli/minicli": "^2.0",
+    "abraham/twitteroauth": "^2.0",
+    "ext-gd": "*"
+  }
+}
