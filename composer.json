@@ -12,6 +12,7 @@
   "require": {
     "minicli/minicli": "^2.0",
     "abraham/twitteroauth": "^2.0",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "ext-json": "*"
   }
 }
