@@ -2,7 +2,9 @@
 
 A PHP GD + TwitterOAuth demo to dynamically generate Twitter header images and upload them via the API. This enables you to build cool little tricks, like showing your latest followers or sponsors, latest content creted, a qrcode to something, a progress bar for some goal, and whathever you can think of.
 
-![twitter cover image with latest GH sponsors and twitter followers](https://user-images.githubusercontent.com/293241/120513746-dc32e600-c3cc-11eb-862e-e7058f78fbfe.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/293241/120513746-dc32e600-c3cc-11eb-862e-e7058f78fbfe.png"/>
+</p>
 
 The demo is explained in detail in this guide: [How to Dynamically Update Twitter Cover Image to Show Latest Followers Using PHP GD and TwitterOAuth](https://dev.to/erikaheidi/how-to-dynamically-update-twitter-cover-image-to-show-latest-followers-using-php-gd-and-twitteroauth-62n).
 
@@ -23,8 +25,23 @@ You also need to register an application within the [Twitter Developers Portal](
 ## Installation
 
 1. Clone this repository
-2. Run `composer install`
-3. Create a file named `credentials.php` in the root folder containing your keys as follows:
+
+Start by cloning this repository to your local PHP dev environment or remote PHP server:
+
+```shell
+git clone https://github.com/erikaheidi/dynacover.git
+cd dynacover
+```
+
+2. Install Composer Dependencies
+
+```shell
+composer install
+```
+
+3. Set Up Twitter Credentials
+
+Create a file named `credentials.php` in the root folder containing your keys as follows:
 
 ```php
 #credentials.php
@@ -38,6 +55,49 @@ return [
 ];
 ```
 
-4. Run `dynacover cover generate` to preview your cover
-5. Run `dynacover cover update` to generate and upload to Twitter
+Replace the keys accordingly and save the file.
+
+4. Test Twitter Connection
+
+To test that your credentials are valid, you can list your latest followers with:
+
+```shell
+php dynacover fetch followers
+```
+
+If everything is set up correctly, you will see a list with your 10 latest followers.
+
+5. Preview your Cover
+
+To preview your cover without uploading it to Twitter, run:
+
+```shell
+php dynacover cover generate
+```
+
+Covers are generated in the root of the application folder, with the name `latest_header.png`. Check the generated image before uploading it to Twitter to confirm it has your latest followers and it looks like you expect.
+
+6. Upload to Twitter
+
+To generate **and** update your cover, run:
+
+```shell
+php dynacover cover update
+```
+
+7. Set Up Crontab (Optional)
+
+For this to be completely dynamic and update frequently, you'll need to include the script to your Crontab or equivalent.
+
+To open the current user's crontab, run:
+
+```shell
+crontab -e
+```
+
+This will open up a text editor. You should include the full paths to both the `php` executable and the `dynacover` script, like in this example which will update the cover every 5 minutes:
+
+```
+*/5 * * * * /usr/bin/php /home/erika/dynacover/dynacover cover update > /dev/null 2>&1
+```
 
