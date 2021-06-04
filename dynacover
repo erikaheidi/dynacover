@@ -8,6 +8,8 @@ if (php_sapi_name() !== 'cli') {
 require __DIR__ . '/vendor/autoload.php';
 
 use Minicli\App;
+use App\Service\TwitterServiceProvider;
+use App\Service\GithubServiceProvider;
 
 $config = [
     'app_path' => __DIR__ . '/app/Command'
@@ -18,4 +20,6 @@ if (is_file(__DIR__ . '/credentials.php')) {
 }
 
 $app = new App($config);
+$app->addService('twitter', new TwitterServiceProvider());
+$app->addService('github', new GithubServiceProvider());
 $app->runCommand($argv);

@@ -1,0 +1,42 @@
+<?php
+
+namespace App\ImageSource;
+
+use App\ApiModel;
+use App\ImageSource;
+use App\Service\GithubServiceProvider;
+use App\Storage;
+use Minicli\App;
+
+class GhSponsorImageSource implements ImageSource
+{
+    static string $prefix = "sp";
+
+    public function getImageList(App $app, $limit = 5): array
+    {
+        /** @var GithubServiceProvider $github */
+        $github = $app->github;
+
+        $sponsors = $github->getSponsorsList();
+
+        if (!isset($sponsors)) {
+            return [];
+        }
+
+        $count = 1;
+        $featured = [];
+
+        /** @var ApiModel $sponsor */
+        foreach ($sponsors as $sponsor) {
+            $avatar = Storage::downloadImage($sponsor->avatarUrl);
+            $featured[self::$prefix . "$count"] = [
+                'screen_name' => $sponsor->login,
+                'avatar' => $avatar
+            ];
+
+            $count++;
+        }
+
+        return $featured;
+    }
+}

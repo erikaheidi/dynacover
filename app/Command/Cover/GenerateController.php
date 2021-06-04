@@ -3,20 +3,19 @@
 namespace App\Command\Cover;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Service\TwitterServiceProvider;
 use App\Template;
 use Minicli\Command\CommandController;
+use App\Storage;
 
 class GenerateController extends CommandController
 {
     public function handle()
     {
-        $api_token = $this->getApp()->config->twitter_consumer_key;
-        $api_secret = $this->getApp()->config->twitter_consumer_secret;
-        $access_token = $this->getApp()->config->twitter_user_token;
-        $token_secret = $this->getApp()->config->twitter_token_secret;
+        /** @var TwitterServiceProvider $twitter */
+        $twitter = $this->getApp()->twitter;
 
-        $client = new TwitterOAuth($api_token, $api_secret, $access_token, $token_secret);
-        $followers = $client->get('/followers/list', [
+        $followers = $twitter->client->get('/followers/list', [
             'skip_status' => true,
             'count' => 5
         ]);
@@ -29,7 +28,7 @@ class GenerateController extends CommandController
         $count = 1;
         $featured = [];
         foreach ($followers->users as $follower) {
-            $avatar = $this->downloadAvatar($follower->profile_image_url_https);
+            $avatar = Storage::downloadImage($follower->profile_image_url_https);
             $featured["tw$count"] = [
                 'screen_name' => $follower->screen_name,
                 'avatar' => $avatar
@@ -47,16 +46,5 @@ class GenerateController extends CommandController
         return 0;
     }
 
-    public function downloadAvatar($url): string
-    {
-        $file_contents = file_get_contents($url);
 
-        $file_path = "/tmp/" . basename($url);
-
-        $image = fopen($file_path, "w+");
-        fwrite($image, $file_contents);
-        fclose($image);
-
-        return $file_path;
-    }
 }

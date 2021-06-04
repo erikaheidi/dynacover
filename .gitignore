@@ -1,5 +1,4 @@
 .idea
 vendor/
-composer.lock
 credentials.php
 latest_header.png
