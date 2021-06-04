@@ -131,7 +131,7 @@ class GenerateController extends CommandController
     {
         $file_contents = file_get_contents($url);
 
-        $file_path = "/tmp/" . basename($url);
+        $file_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . basename($url);
 
         $image = fopen($file_path, "w+");
         fwrite($image, $file_contents);
