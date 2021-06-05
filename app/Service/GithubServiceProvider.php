@@ -75,6 +75,9 @@ JSON;
 
         if ($response['code'] == 200) {
             $data = json_decode($response['body'], true);
+            if($data['errors']) {
+                throw new \RuntimeException($data['errors'][0]['type'] . ' : ' . $data['errors'][0]['message']);
+            }
             $pagination_info = $data['data']['viewer']['sponsorshipsAsMaintainer']['pageInfo'];
             $sponsors = $data['data']['viewer']['sponsorshipsAsMaintainer']['nodes'];
 
