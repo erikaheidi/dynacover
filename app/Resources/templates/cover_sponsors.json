@@ -1,0 +1,67 @@
+{
+  "width": 1500,
+  "height": 500,
+  "sources": {
+    "twitter": {
+      "count": 4,
+      "class": "App\\ImageSource\\TwitterFollowerImageSource"
+    },
+    "github":  {
+      "count":  3,
+      "class": "App\\ImageSource\\GhSponsorImageSource"
+    }
+  },
+  "elements": {
+    "sp1": {
+      "width": 140,
+      "height": 140,
+      "pos_x": 898,
+      "pos_y": 326
+    },
+    "sp2": {
+      "width": 140,
+      "height": 140,
+      "pos_x": 1101,
+      "pos_y": 326
+    },
+    "sp3": {
+      "width": 140,
+      "height": 140,
+      "pos_x": 1311,
+      "pos_y": 326
+    },
+    "tw1": {
+      "pos_x": 461,
+      "pos_y": 393,
+      "width": 70,
+      "height": 70
+    },
+    "tw2": {
+      "pos_x": 548,
+      "pos_y": 393,
+      "width": 70,
+      "height": 70
+    },
+    "tw3": {
+      "pos_x": 636,
+      "pos_y": 393,
+      "width": 70,
+      "height": 70
+    },
+    "tw4": {
+      "pos_x": 727,
+      "pos_y": 393,
+      "width": 70,
+      "height": 70
+    },
+    "cover":  {
+      "width": 1500,
+      "height": 500,
+      "pos_x": 0,
+      "pos_y":  0,
+      "image": "app/Resources/images/cover_sponsors.png"
+    }
+  }
+}
+
+

@@ -1,0 +1,49 @@
+{
+  "width": 1500,
+  "height": 500,
+  "sources": {
+    "twitter": {
+      "count": 5,
+      "class": "App\\ImageSource\\TwitterFollowerImageSource"
+    }
+  },
+  "elements": {
+    "tw1": {
+      "pos_x": 486,
+      "pos_y": 272,
+      "width": 130,
+      "height": 130
+    },
+    "tw2": {
+      "pos_x": 670,
+      "pos_y": 270,
+      "width": 132,
+      "height": 132
+    },
+    "tw3": {
+      "pos_x": 859,
+      "pos_y": 270,
+      "width": 132,
+      "height": 132
+    },
+    "tw4": {
+      "pos_x": 1049,
+      "pos_y": 270,
+      "width": 132,
+      "height": 132
+    },
+    "tw5": {
+      "pos_x": 1236,
+      "pos_y": 270,
+      "width": 130,
+      "height": 130
+    },
+    "cover":  {
+      "width": 1500,
+      "height": 500,
+      "pos_x": 0,
+      "pos_y":  0,
+      "image": "app/Resources/images/cover_basic.png"
+    }
+  }
+}

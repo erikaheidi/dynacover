@@ -12,6 +12,13 @@
   "require": {
     "minicli/minicli": "^2.0",
     "abraham/twitteroauth": "^2.0",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "ext-json": "*",
+    "minicli/curly": "^0.1.2"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@php -r \"file_exists('credentials.php') || copy('credentials_sample.php', 'credentials.php');\""
+    ]
   }
 }
