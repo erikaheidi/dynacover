@@ -29,7 +29,9 @@ class TwitterFollowerImageSource implements ImageSource
         $featured = [];
 
         foreach ($followers->users as $follower) {
-            $avatar = Storage::downloadImage($follower->profile_image_url_https);
+            //get bigger thumbnail
+            $avatar_path = str_replace('normal', 'bigger', $follower->profile_image_url_https);
+            $avatar = Storage::downloadImage($avatar_path);
             $featured[self::$prefix . "$count"] = [
                 'screen_name' => $follower->screen_name,
                 'avatar' => $avatar

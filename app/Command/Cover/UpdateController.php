@@ -3,15 +3,17 @@
 namespace App\Command\Cover;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Storage;
 use Minicli\Command\CommandController;
 
 class UpdateController extends CommandController
 {
     public function handle()
     {
-        $banner_path = __DIR__ . '/../../../latest_header.png';
+        $banner_path = Storage::root() . 'latest_header.png';
+        $default_cover = $this->getApp()->config->default_template;
         $this->getPrinter()->info("Generating new cover...");
-        $this->getApp()->runCommand(['dynacover', 'generate', 'twitter']);
+        $this->getApp()->runCommand(['dynacover', 'generate', 'twitter', "template=$default_cover"]);
 
         $api_token = $this->getApp()->config->twitter_consumer_key;
         $api_secret = $this->getApp()->config->twitter_consumer_secret;

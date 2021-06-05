@@ -1,0 +1,49 @@
+{
+  "width": 1500,
+  "height": 500,
+  "sources": {
+    "twitter": {
+      "count": 5,
+      "class": "App\\ImageSource\\TwitterFollowerImageSource"
+    }
+  },
+  "elements": {
+    "tw1": {
+      "pos_x": 838,
+      "pos_y": 275,
+      "width": 98,
+      "height": 98
+    },
+    "tw2": {
+      "pos_x": 962,
+      "pos_y": 275,
+      "width": 98,
+      "height": 98
+    },
+    "tw3": {
+      "pos_x": 1087,
+      "pos_y": 275,
+      "width": 98,
+      "height": 98
+    },
+    "tw4": {
+      "pos_x": 1212,
+      "pos_y": 275,
+      "width": 98,
+      "height": 98
+    },
+    "tw5": {
+      "pos_x": 1338,
+      "pos_y": 275,
+      "width": 98,
+      "height": 98
+    },
+    "cover":  {
+      "width": 1500,
+      "height": 500,
+      "pos_x": 0,
+      "pos_y":  0,
+      "image": "app/Resources/images/cover_neon.png"
+    }
+  }
+}

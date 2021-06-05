@@ -12,7 +12,8 @@ use App\Service\TwitterServiceProvider;
 use App\Service\GithubServiceProvider;
 
 $config = [
-    'app_path' => __DIR__ . '/app/Command'
+    'app_path' => __DIR__ . '/app/Command',
+    'default_template' => 'app/Resources/templates/cover_colorful.json'
 ];
 
 if (is_file(__DIR__ . '/credentials.php')) {
@@ -20,6 +21,7 @@ if (is_file(__DIR__ . '/credentials.php')) {
 }
 
 $app = new App($config);
+$app->setSignature('./dynacover help');
 $app->addService('twitter', new TwitterServiceProvider());
 $app->addService('github', new GithubServiceProvider());
 $app->runCommand($argv);

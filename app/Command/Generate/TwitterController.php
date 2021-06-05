@@ -12,26 +12,25 @@ class TwitterController extends CommandController
 {
     public function handle(): int
     {
-        $template = Storage::root() . 'app/Resources/templates/cover_basic.json';
+        $template_file = 'app/Resources/templates/cover_basic.json';
 
         if ($this->hasParam('template')) {
+            $template_file = $this->getParam('template');
+        }
 
-            if (!is_file($template)) {
-                $this->getPrinter()->error("Template not found.");
-                return 1;
-            }
-
-            $template = $this->getParam('template');
+        if (!is_file(Storage::root() . $template_file)) {
+            $this->getPrinter()->error("Template not found.");
+            return 1;
         }
 
         $save_path = Storage::root() . 'latest_header.png';
-        $template = Template::create($template);
+        $template = Template::create(Storage::root() . $template_file);
 
         $featured = [];
         foreach ($template->sources as $key => $params) {
             /** @var ImageSource $source */
             $source = new $params['class'];
-            $featured = array_merge($featured, $source->getImageList($this->getApp()));
+            $featured = array_merge($featured, $source->getImageList($this->getApp(), $params['count']));
         }
 
         $template->build($featured);

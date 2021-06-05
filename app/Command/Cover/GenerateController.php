@@ -12,6 +12,7 @@ class GenerateController extends CommandController
 {
     public function handle()
     {
-        $this->getApp()->runCommand(['dynacover', 'generate', 'twitter']);
+        $default_cover = $this->getApp()->config->default_template;
+        $this->getApp()->runCommand(['dynacover', 'generate', 'twitter', "template=$default_cover"]);
     }
 }

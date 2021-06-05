@@ -3,12 +3,10 @@
   "height": 500,
   "sources": {
     "twitter": {
-      "prefix": "tw",
       "count": 4,
       "class": "App\\ImageSource\\TwitterFollowerImageSource"
     },
     "github":  {
-      "prefix": "sp",
       "count":  3,
       "class": "App\\ImageSource\\GhSponsorImageSource"
     }
