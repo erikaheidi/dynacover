@@ -12,7 +12,7 @@ class TwitterController extends CommandController
 {
     public function handle(): int
     {
-        $template_file = 'app/Resources/templates/cover_basic.json';
+        $template_file = $this->getApp()->config->default_template;
 
         if ($this->hasParam('template')) {
             $template_file = $this->getParam('template');

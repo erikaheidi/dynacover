@@ -13,7 +13,7 @@ use App\Service\GithubServiceProvider;
 
 $config = [
     'app_path' => __DIR__ . '/app/Command',
-    'default_template' => 'app/Resources/templates/cover_colorful.json'
+    'default_template' => 'app/Resources/templates/cover_basic.json'
 ];
 
 if (is_file(__DIR__ . '/credentials.php')) {
