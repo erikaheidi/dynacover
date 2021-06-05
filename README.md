@@ -3,7 +3,7 @@
 A PHP GD + TwitterOAuth demo to dynamically generate Twitter header images and upload them via the API. This enables you to build cool little tricks, like showing your latest followers or sponsors, latest content creted, a qrcode to something, a progress bar for some goal, and whathever you can think of.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/293241/120513746-dc32e600-c3cc-11eb-862e-e7058f78fbfe.png"/>
+<img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png"/>
 </p>
 
 The demo is explained in detail in this guide: [How to Dynamically Update Twitter Cover Image to Show Latest Followers Using PHP GD and TwitterOAuth](https://dev.to/erikaheidi/how-to-dynamically-update-twitter-cover-image-to-show-latest-followers-using-php-gd-and-twitteroauth-62n).
@@ -74,7 +74,7 @@ php dynacover fetch followers
 
 If everything is set up correctly, you will see a list with your 10 latest followers.
 
-### 5. Preview your Cover
+### 5. Choose a Template and Preview your Cover
 
 To preview your cover without uploading it to Twitter, run:
 
@@ -88,11 +88,42 @@ This will use the default `cover_basic.json` template. You can specify a templat
 php dynacover twitter generate template=app/Resources/templates/cover_neon.json
 ```
 
-Built-in templates are located in the `app/Resources/templates` directory.
-
-You can also create your own templates in any preferred location and pass the template json path as parameter, relative to the application root folder. Check the included templates to see how it works.
+Built-in templates are located in the `app/Resources/templates` directory. You can also create your own templates in any preferred location and pass the template json path as parameter, relative to the application root folder. Check the included templates to see how it works. Ideally, you should choose a default template and set it up within the `dynacover` script configuration.
 
 Covers are generated in the root of the application folder, with the name `latest_header.png`. Check the generated image before uploading it to Twitter to confirm it has your latest followers, and it looks like you expect.
+
+### Available Templates
+
+### `cover_basic.json`
+The default template shows latest 5 Twitter followers.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png"/>
+</p>
+
+### `cover_colorful.json`
+Similar to the basic cover, but with a more colorful background. Shows latest 5 Twitter followers.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/293241/120889018-8abc6e00-c5fb-11eb-85ee-ba85d95851b7.png"/>
+</p>
+
+
+### `cover_neon.json`
+This template shows your latest 5 Twitter followers in smaller size, in a blue-neon style header.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/293241/120889083-d53dea80-c5fb-11eb-86c6-e08420de124e.png"/>
+</p>
+
+### `cover_sponsors.json`
+This template uses the Github image source to obtain sponsors and include them in the banner. Make sure you have set up your GH token on the `credentials.php` file.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/293241/120888781-8c396680-c5fa-11eb-8d1d-f3889fdd06e7.png"/>
+</p>
+
+
 
 ### 6. Upload to Twitter
 
@@ -109,7 +140,7 @@ php dynacover cover update
 
 ### 7. Set Up Crontab (Optional)
 
-For this to be completely dynamic and update frequently, you'll need to include the script to your Crontab or equivalent.
+For this to be completely dynamic and update frequently, you'll need to include the script to your Crontab or equivalent. First make sure you set up the `default_template` config parameter in the `dynacover` script to your preferred template. By default, this is `app/Resources/templates/cover_basic.json`.
 
 To open the current user's crontab, run:
 
