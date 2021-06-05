@@ -1,6 +1,13 @@
 {
   "width": 1500,
   "height": 500,
+  "sources": {
+    "twitter": {
+      "prefix": "tw",
+      "count": 4,
+      "class": "App\\ImageSource\\TwitterFollowerImageSource"
+    }
+  },
   "elements": {
     "tw1": {
       "pos_x": 486,

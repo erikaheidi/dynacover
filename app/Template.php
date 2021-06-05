@@ -7,6 +7,7 @@ class Template
     public string $name;
     public int $width;
     public int $height;
+    public array $sources;
     public array $placeholders = [];
     protected $resource;
 
@@ -29,6 +30,7 @@ class Template
 
         $this->width = $json_content['width'];
         $this->height = $json_content['height'];
+        $this->sources = $json_content['sources'];
 
         foreach ($json_content['elements'] as $key => $element) {
             $this->addPlaceholder($key, $element['width'], $element['height'], $element['pos_x'], $element['pos_y'], $element['image'] ?? null);
@@ -56,7 +58,7 @@ class Template
         foreach ($this->placeholders as $key => $placeholder) {
 
             if ($placeholder['image']) {
-                $this->apply($key, __DIR__ . '/../' . $placeholder['image']);
+                $this->apply($key, Storage::root() . $placeholder['image']);
                 continue;
             }
 

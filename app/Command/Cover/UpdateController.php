@@ -11,7 +11,7 @@ class UpdateController extends CommandController
     {
         $banner_path = __DIR__ . '/../../../latest_header.png';
         $this->getPrinter()->info("Generating new cover...");
-        $this->getApp()->runCommand(['dynacover', 'cover', 'generate']);
+        $this->getApp()->runCommand(['dynacover', 'generate', 'twitter']);
 
         $api_token = $this->getApp()->config->twitter_consumer_key;
         $api_secret = $this->getApp()->config->twitter_consumer_secret;
