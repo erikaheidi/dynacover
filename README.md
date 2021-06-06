@@ -79,13 +79,13 @@ If everything is set up correctly, you will see a list with your 10 latest follo
 To preview your cover without uploading it to Twitter, run:
 
 ```shell
-php dynacover twitter generate
+php dynacover generate twitter
 ```
 
 This will use the default `cover_basic.json` template. You can specify a template with the `template=template_path` parameter:
 
 ```shell
-php dynacover twitter generate template=app/Resources/templates/cover_neon.json
+php dynacover generate twitter template=app/Resources/templates/cover_neon.json
 ```
 
 Built-in templates are located in the `app/Resources/templates` directory. You can also create your own templates in any preferred location and pass the template json path as parameter, relative to the application root folder. Check the included templates to see how it works. Ideally, you should choose a default template and set it up within the `dynacover` script configuration.
