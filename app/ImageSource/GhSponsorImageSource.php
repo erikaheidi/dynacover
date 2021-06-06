@@ -26,6 +26,8 @@ class GhSponsorImageSource implements ImageSource
         $count = 1;
         $featured = [];
 
+        shuffle($sponsors);
+
         /** @var ApiModel $sponsor */
         foreach ($sponsors as $sponsor) {
             $avatar = Storage::downloadImage($sponsor->avatarUrl);
