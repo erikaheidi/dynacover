@@ -34,7 +34,8 @@ class TwitterFollowerImageSource implements ImageSource
             $avatar = Storage::downloadImage($avatar_path);
             $featured[self::$prefix . "$count"] = [
                 'screen_name' => $follower->screen_name,
-                'avatar' => $avatar
+                'avatar' => $avatar,
+                'image_file' => $avatar
             ];
 
             $count++;
