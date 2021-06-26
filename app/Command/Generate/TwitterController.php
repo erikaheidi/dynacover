@@ -3,9 +3,10 @@
 namespace App\Command\Generate;
 
 use App\ImageSource;
-use App\Service\TwitterServiceProvider;
 use App\Storage;
 use App\Template;
+use GDaisy\ImagePlaceholder;
+use GDaisy\PlaceholderInterface;
 use Minicli\Command\CommandController;
 
 class TwitterController extends CommandController
@@ -27,13 +28,27 @@ class TwitterController extends CommandController
         $template = Template::create(Storage::root() . $template_file);
 
         $featured = [];
+        //build sources
         foreach ($template->sources as $key => $params) {
             /** @var ImageSource $source */
             $source = new $params['class'];
             $featured = array_merge($featured, $source->getImageList($this->getApp(), $params['count']));
         }
 
-        $template->build($featured);
+        //apply
+        /**
+         * @var string $key
+         * @var PlaceholderInterface $placeholder
+         */
+        foreach ($template->placeholders as $key => $placeholder) {
+            if ($placeholder instanceof ImagePlaceholder and $placeholder->image) {
+                $placeholder->apply($template->getResource(), ['image_file' => $placeholder->image]);
+                continue;
+            }
+
+            $placeholder->apply($template->getResource(), $featured[$key]);
+        }
+
         $template->write($save_path);
         $this->getPrinter()->info("Finished generating cover at $save_path.");
 

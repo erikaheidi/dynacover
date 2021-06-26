@@ -33,7 +33,8 @@ class GhSponsorImageSource implements ImageSource
             $avatar = Storage::downloadImage($sponsor->avatarUrl);
             $featured[self::$prefix . "$count"] = [
                 'screen_name' => $sponsor->login,
-                'avatar' => $avatar
+                'avatar' => $avatar,
+                'image_file' => $avatar
             ];
 
             $count++;

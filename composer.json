@@ -14,7 +14,8 @@
     "abraham/twitteroauth": "^2.0",
     "ext-gd": "*",
     "ext-json": "*",
-    "minicli/curly": "^0.1.2"
+    "minicli/curly": "^0.1.2",
+    "erikaheidi/gdaisy": "^0.1.5"
   },
   "scripts": {
     "post-install-cmd": [

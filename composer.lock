@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bbec74ed39f5b8350ca530d2c7788fb",
+    "content-hash": "ff2d15be925595100cccb7157e46e9c4",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -142,6 +142,50 @@
                 }
             ],
             "time": "2021-01-12T12:10:35+00:00"
+        },
+        {
+            "name": "erikaheidi/gdaisy",
+            "version": "0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erikaheidi/gdaisy.git",
+                "reference": "7296916e1d9c3c331767eb7fe44f686e1287f408"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erikaheidi/gdaisy/zipball/7296916e1d9c3c331767eb7fe44f686e1287f408",
+                "reference": "7296916e1d9c3c331767eb7fe44f686e1287f408",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "ext-json": "*",
+                "minicli/minicli": "^2.2",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.0"
+            },
+            "bin": [
+                "bin/gdaisy"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GDaisy\\": "src/",
+                    "GDaisy\\Command\\": "bin/command"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "php-gd templating system",
+            "support": {
+                "issues": "https://github.com/erikaheidi/gdaisy/issues",
+                "source": "https://github.com/erikaheidi/gdaisy/tree/0.1.5"
+            },
+            "time": "2021-06-21T10:07:35+00:00"
         },
         {
             "name": "minicli/curly",
