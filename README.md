@@ -1,12 +1,12 @@
 # dynacover
 
-A PHP GD + TwitterOAuth demo to dynamically generate Twitter header images and upload them via the API. This enables you to build cool little tricks, like showing your latest followers or sponsors, latest content creted, a qrcode to something, a progress bar for some goal, and whathever you can think of.
+A PHP GD + TwitterOAuth CLI app to dynamically generate Twitter header images and upload them via the API. This enables you to build cool little tricks, like showing your latest followers or sponsors, your latest content created, a qrcode to something, a progress bar for a goal, and whatever you can think of.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png"/>
 </p>
 
-The demo is explained in detail in this guide: [How to Dynamically Update Twitter Cover Image to Show Latest Followers Using PHP GD and TwitterOAuth](https://dev.to/erikaheidi/how-to-dynamically-update-twitter-cover-image-to-show-latest-followers-using-php-gd-and-twitteroauth-62n).
+The demo is explained in detail in this guide: [How to Dynamically Update Twitter Cover Image to Show Latest Followers Using PHP GD and TwitterOAuth](https://dev.to/erikaheidi/how-to-dynamically-update-twitter-cover-image-to-show-latest-followers-using-php-gd-and-twitteroauth-62n). Please notice that the version that is compatible with this tutorial is [0.1.0](https://github.com/erikaheidi/dynacover/releases/tag/0.1), the initial release. Newer versions use [erikaheidi/gdaisy](https://github.com/erikaheidi/gdaisy) as dependency to work with JSON templates.
 
 ## Requirements
 
@@ -22,7 +22,7 @@ You also need to register an application within the [Twitter Developers Portal](
 - User / Access Token
 - User / Access Token Secret
 
-Additionally, you can set up a [Personal GitHub API key](https://github.com/settings/tokens) to fetch your sponsors, in case you are enrolled in the GitHub Sponsors program ,and you want to use the included `cover_sponsors.json` template. This is optional.
+Additionally, you can set up a [Personal GitHub API key](https://github.com/settings/tokens) to fetch your sponsors, in case you are enrolled in the GitHub Sponsors program, and you want to use the included `cover_sponsors.json` template. This is optional.
 
 ## Installation
 
