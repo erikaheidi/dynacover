@@ -164,6 +164,9 @@ The "interactions banner" is generated based on your recent interactions and can
 php dynacover generate interactions
 ```
 
+![latest_header](https://user-images.githubusercontent.com/293241/124271726-1a433700-db3e-11eb-851b-2812d9df923b.png)
+
+
 For mutuals only, include the `--mutuals` flag:
 
 ```shell
