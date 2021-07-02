@@ -12,7 +12,7 @@ class GhSponsorImageSource implements ImageSource
 {
     static string $prefix = "sp";
 
-    public function getImageList(App $app, $limit = 5): array
+    public function getImageList(App $app, int $limit = 5, array $params = []): array
     {
         /** @var GithubServiceProvider $github */
         $github = $app->github;

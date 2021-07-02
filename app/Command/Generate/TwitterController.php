@@ -5,7 +5,7 @@ namespace App\Command\Generate;
 use App\ImageSource;
 use App\Storage;
 use App\Template;
-use GDaisy\ImagePlaceholder;
+use GDaisy\Placeholder\ImagePlaceholder;
 use GDaisy\PlaceholderInterface;
 use Minicli\Command\CommandController;
 
