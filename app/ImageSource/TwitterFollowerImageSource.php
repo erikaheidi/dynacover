@@ -11,7 +11,7 @@ class TwitterFollowerImageSource implements ImageSource
 {
     static string $prefix = "tw";
 
-    public function getImageList(App $app, $limit = 5): array
+    public function getImageList(App $app, int $limit = 5, array $params = []): array
     {
         /** @var TwitterServiceProvider $twitter */
         $twitter = $app->twitter;
