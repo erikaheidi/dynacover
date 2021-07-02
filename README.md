@@ -1,6 +1,8 @@
 # dynacover
 
-A PHP GD + TwitterOAuth CLI app to dynamically generate Twitter header images and upload them via the API. This enables you to build cool little tricks, like showing your latest followers or sponsors, your latest content created, a qrcode to something, a progress bar for a goal, and whatever you can think of.
+A PHP GD + TwitterOAuth CLI app to dynamically generate Twitter header images and optionally upload them via the API. This enables you to build cool little tricks, like showing your latest followers or sponsors, your latest content created, a qrcode to something, a progress bar for a goal, and whatever you can think of.
+
+Other types of dynamic banners can also be generated. Dynacover uses [erikaheidi/gdaisy](https://github.com/erikaheidi/gdaisy) for image manipulation based on templates.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png"/>
@@ -153,4 +155,20 @@ This will open up a text editor. You should include the full paths to both the `
 ```
 */5 * * * * /usr/bin/php /home/erika/dynacover/dynacover cover update > /dev/null 2>&1
 ```
+
+### Interactions Banner
+
+The "interactions banner" is generated based on your recent interactions and can be limited to only include mutuals (people that follows you and you follow them back).
+
+```shell
+php dynacover generate interactions
+```
+
+For mutuals only, include the `--mutuals` flag:
+
+```shell
+php dynacover generate interactions --mutuals
+```
+
+_Please notice that the "mutuals" version may have a limited set of results after filtering your latest interactions (~200 mentions)._
 
