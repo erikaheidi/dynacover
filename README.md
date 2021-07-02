@@ -5,7 +5,7 @@ A PHP GD + TwitterOAuth CLI app to dynamically generate Twitter header images an
 Other types of dynamic banners can also be generated. Dynacover uses [erikaheidi/gdaisy](https://github.com/erikaheidi/gdaisy) for image manipulation based on templates.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png"/>
+<img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png" alt="dynamic twitter profile header"/>
 </p>
 
 The demo is explained in detail in this guide: [How to Dynamically Update Twitter Cover Image to Show Latest Followers Using PHP GD and TwitterOAuth](https://dev.to/erikaheidi/how-to-dynamically-update-twitter-cover-image-to-show-latest-followers-using-php-gd-and-twitteroauth-62n). Please notice that the version that is compatible with this tutorial is [0.1.0](https://github.com/erikaheidi/dynacover/releases/tag/0.1), the initial release. Newer versions use [erikaheidi/gdaisy](https://github.com/erikaheidi/gdaisy) as dependency to work with JSON templates.
@@ -100,14 +100,14 @@ Covers are generated in the root of the application folder, with the name `lates
 The default template shows latest 5 Twitter followers.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png"/>
+<img src="https://user-images.githubusercontent.com/293241/120888813-b559f700-c5fa-11eb-901f-0dac22afd662.png" alt="cover basic"/>
 </p>
 
 ### `cover_colorful.json`
 Similar to the basic cover, but with a more colorful background. Shows latest 5 Twitter followers.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/293241/120889018-8abc6e00-c5fb-11eb-85ee-ba85d95851b7.png"/>
+<img src="https://user-images.githubusercontent.com/293241/120889018-8abc6e00-c5fb-11eb-85ee-ba85d95851b7.png" alt="cover colorful"/>
 </p>
 
 
@@ -115,14 +115,14 @@ Similar to the basic cover, but with a more colorful background. Shows latest 5 
 This template shows your latest 5 Twitter followers in smaller size, in a blue-neon style header.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/293241/120889083-d53dea80-c5fb-11eb-86c6-e08420de124e.png"/>
+<img src="https://user-images.githubusercontent.com/293241/120889083-d53dea80-c5fb-11eb-86c6-e08420de124e.png" alt="cover neon"/>
 </p>
 
 ### `cover_sponsors.json`
 This template uses the Github image source to obtain sponsors and include them in the banner. Make sure you have set up your GH token on the `credentials.php` file.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/293241/120888781-8c396680-c5fa-11eb-8d1d-f3889fdd06e7.png"/>
+<img src="https://user-images.githubusercontent.com/293241/120888781-8c396680-c5fa-11eb-8d1d-f3889fdd06e7.png" alt="cover with github sponsors"/>
 </p>
 
 
@@ -156,7 +156,7 @@ This will open up a text editor. You should include the full paths to both the `
 */5 * * * * /usr/bin/php /home/erika/dynacover/dynacover cover update > /dev/null 2>&1
 ```
 
-### Interactions Banner
+## Recent Interactions Banner
 
 The "interactions banner" is generated based on your recent interactions and can be limited to only include mutuals (people that follows you and you follow them back).
 
@@ -164,7 +164,9 @@ The "interactions banner" is generated based on your recent interactions and can
 php dynacover generate interactions
 ```
 
-![latest_header](https://user-images.githubusercontent.com/293241/124271726-1a433700-db3e-11eb-851b-2812d9df923b.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/293241/124271726-1a433700-db3e-11eb-851b-2812d9df923b.png" alt="recent interactions twitter banner"/>
+</p>
 
 
 For mutuals only, include the `--mutuals` flag:
