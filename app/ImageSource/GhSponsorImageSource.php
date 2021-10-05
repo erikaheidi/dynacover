@@ -23,21 +23,18 @@ class GhSponsorImageSource implements ImageSource
             return [];
         }
 
-        $count = 1;
         $featured = [];
 
         shuffle($sponsors);
 
         /** @var ApiModel $sponsor */
-        foreach ($sponsors as $sponsor) {
+        foreach ($sponsors as $index => $sponsor) {
             $avatar = Storage::downloadImage($sponsor->avatarUrl);
-            $featured[self::$prefix . "$count"] = [
+            $featured[sprintf('%s%d', self::$prefix, $index + 1)] = [
                 'screen_name' => $sponsor->login,
                 'avatar' => $avatar,
                 'image_file' => $avatar
             ];
-
-            $count++;
         }
 
         return $featured;
