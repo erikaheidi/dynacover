@@ -79,7 +79,7 @@ JSON;
 
         if ($response['code'] == 200) {
             $data = json_decode($response['body'], true);
-            if($data['errors']) {
+            if(isset($data['errors'])) {
                 $this->app->getPrinter()->error($data['errors'][0]['type'] . ' : ' . $data['errors'][0]['message']);
             }
             $pagination_info = $data['data']['viewer']['sponsorshipsAsMaintainer']['pageInfo'];
