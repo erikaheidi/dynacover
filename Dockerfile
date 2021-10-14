@@ -34,7 +34,7 @@ USER $user
 
 # Copy app files
 RUN mkdir -p /home/$user/dynacover
-COPY app /home/$user/dynacover
+COPY . /home/$user/dynacover/
 
 # Set working directory
 WORKDIR /home/$user/dynacover

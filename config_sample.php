@@ -11,5 +11,5 @@ return [
     'github_api_bearer' => getenv('GITHUB_TOKEN') ?: 'GITHUB_API_BEARER_TOKEN',
 
     //Default Template
-    'default_template' => 'app/Resources/templates/cover_basic.json'
+    'default_template' => getenv('DEFAULT_TEMPLATE') ?: 'app/Resources/templates/cover_basic.json'
 ];
