@@ -10,18 +10,30 @@ require __DIR__ . '/vendor/autoload.php';
 use Minicli\App;
 use App\Service\TwitterServiceProvider;
 use App\Service\GithubServiceProvider;
+use Minicli\Exception\CommandNotFoundException;
 
 $config = [
     'app_path' => __DIR__ . '/app/Command',
     'default_template' => 'app/Resources/templates/cover_basic.json'
 ];
 
-if (is_file(__DIR__ . '/credentials.php')) {
-    $config = array_merge($config, require __DIR__ . '/credentials.php');
+if (is_file(__DIR__ . '/config.php')) {
+    $config = array_merge($config, require __DIR__ . '/config.php');
 }
 
 $app = new App($config);
 $app->setSignature('./dynacover help');
 $app->addService('twitter', new TwitterServiceProvider());
 $app->addService('github', new GithubServiceProvider());
-$app->runCommand($argv);
+
+try {
+    $app->runCommand($argv);
+} catch (CommandNotFoundException $ce) {
+    $app->getPrinter()->error("Command not found.");
+    return 1;
+} catch (Exception $e) {
+    $app->getPrinter()->error("An error occurred.");
+    return 1;
+}
+
+return 0;

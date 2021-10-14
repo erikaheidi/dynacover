@@ -19,7 +19,7 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "@php -r \"file_exists('credentials.php') || copy('credentials_sample.php', 'credentials.php');\""
+      "@php -r \"file_exists('config.php') || copy('config_sample.php', 'config.php');\""
     ]
   }
 }

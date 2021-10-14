@@ -50,7 +50,7 @@ class TwitterController extends CommandController
         }
 
         $template->write($save_path);
-        $this->getPrinter()->info("Finished generating cover at $save_path.");
+        $this->getPrinter()->info("Finished generating cover at $save_path, using $template_file as template.");
 
         return 0;
     }

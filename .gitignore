@@ -1,4 +1,6 @@
+.env
 .idea
 vendor/
 credentials.php
+config.php
 latest_header.png
