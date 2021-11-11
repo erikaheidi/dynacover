@@ -42,7 +42,7 @@ class TwitterController extends CommandController
          */
         foreach ($template->placeholders as $key => $placeholder) {
             if ($placeholder instanceof ImagePlaceholder and $placeholder->image) {
-                $placeholder->apply($template->getResource(), ['image_file' => $placeholder->image]);
+                $placeholder->apply($template->getResource(), ['image_file' => Storage::root() . $placeholder->image]);
                 continue;
             }
 
