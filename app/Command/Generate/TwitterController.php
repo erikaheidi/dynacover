@@ -20,7 +20,6 @@ class TwitterController extends CommandController
         }
 
         if (!is_file($template_file)) {
-            //try to locate template on default path
             $template_file = Storage::root() . '/app/Resources/templates/' . $template_file;
             if (!is_file($template_file)) {
                 $this->getPrinter()->error("Template not found.");
