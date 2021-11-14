@@ -44,15 +44,26 @@ nano .dynacover
 ```
 
 ```ini
+#############################
 # Credentials
-TW_CONSUMER_KEY=YOUR_APP_KEY
-TW_CONSUMER_SECRET=YOUR_APP_SECRET
-TW_USER_TOKEN=USER_ACCESS_TOKEN
-TW_USER_TOKEN_SECRET=USER_ACCESS_TOKEN_SECRET
-GITHUB_TOKEN=GITHUB_PERSONAL_TOKEN
+#############################
+DYNA_TWITTER_KEY=
+DYNA_TWITTER_SECRET=
+DYNA_TWITTER_TOKEN=
+DYNA_TWITTER_TOKEN_SECRET=
+DYNA_GITHUB_TOKEN=
 
+############################
+# Paths
+############################
+DYNA_TEMPLATES_DIR=
+DYNA_IMAGES_DIR=
+DYNA_OUTPUT_DIR=
+
+##################################
 # Default Template
-DEFAULT_TEMPLATE=app/Resources/templates/cover_basic.json
+##################################
+#DYNA_DEFAULT_TEMPLATE=cover_sponsors.json
 ```
 
 Save the file once you're done adding your API credentials there. You can also use this file to set up your default template of choice.
@@ -127,16 +138,21 @@ Open the generated `config.php` file and set up your credentials:
 
 return [
     //Twitter API Keys
-    'twitter_consumer_key' => getenv('TW_CONSUMER_KEY') ?: 'APP_CONSUMER_KEY',
-    'twitter_consumer_secret' => getenv('TW_CONSUMER_SECRET') ?: 'APP_CONSUMER_SECRET',
-    'twitter_user_token' => getenv('TW_USER_TOKEN') ?: 'USER_ACCESS_TOKEN',
-    'twitter_token_secret' => getenv('TW_USER_TOKEN_SECRET') ?: 'USER_ACCESS_TOKEN_SECRET',
+    'twitter_consumer_key' => getenv('DYNA_TWITTER_KEY') ?: 'APP_CONSUMER_KEY',
+    'twitter_consumer_secret' => getenv('DYNA_TWITTER_SECRET') ?: 'APP_CONSUMER_SECRET',
+    'twitter_user_token' => getenv('DYNA_TWITTER_TOKEN') ?: 'USER_ACCESS_TOKEN',
+    'twitter_token_secret' => getenv('DYNA_TWITTER_TOKEN_SECRET') ?: 'USER_ACCESS_TOKEN_SECRET',
 
     //GitHub Personal Token (for templates using GH Sponsors)
-    'github_api_bearer' => getenv('GITHUB_TOKEN') ?: 'GITHUB_API_BEARER_TOKEN',
+    'github_api_bearer' => getenv('DYNA_GITHUB_TOKEN') ?: 'GITHUB_API_BEARER_TOKEN',
+
+    //Paths
+    'templates_dir' => getenv('DYNA_TEMPLATES_DIR') ?: __DIR__ . '/app/Resources/templates',
+    'images_dir' => getenv('DYNA_IMAGES_DIR') ?: __DIR__ . '/app/Resources/images',
+    'output_dir' => getenv('DYNA_OUTPUT_DIR') ?: __DIR__,
 
     //Default Template
-    'default_template' => getenv('DEFAULT_TEMPLATE') ?: 'app/Resources/templates/cover_basic.json'
+    'default_template' => getenv('DYNA_DEFAULT_TEMPLATE') ?: 'cover_basic.json'
 ];
 ```
 _The `github_api_bearer` token is optional, only in case you want to use the GitHub API to fetch Sponsors._
