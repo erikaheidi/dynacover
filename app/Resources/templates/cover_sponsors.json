@@ -82,7 +82,7 @@
         "height": 500,
         "pos_x": 0,
         "pos_y":  0,
-        "image": "app/Resources/images/cover_sponsors.png"
+        "image": "cover_sponsors.png"
       }
     }
   }
