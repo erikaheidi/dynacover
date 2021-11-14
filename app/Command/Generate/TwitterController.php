@@ -13,21 +13,24 @@ class TwitterController extends CommandController
 {
     public function handle(): int
     {
+        $template_dir = $this->getApp()->config->templates_dir;
         $template_file = $this->getApp()->config->default_template;
+        $images_dir = $this->getApp()->config->images_dir;
+        $output_dir = $this->getApp()->config->output_dir;
 
         if ($this->hasParam('template')) {
             $template_file = $this->getParam('template');
         }
 
         if (!is_file($template_file)) {
-            $template_file = Storage::root() . '/app/Resources/templates/' . $template_file;
+            $template_file = $template_dir . '/' . $template_file;
             if (!is_file($template_file)) {
-                $this->getPrinter()->error("Template not found.");
+                $this->getPrinter()->error("Template $template_file not found.");
                 return 1;
             }
         }
 
-        $save_path = Storage::root() . 'latest_header.png';
+        $save_path = $output_dir. '/latest_header.png';
         $template = Template::create($template_file);
 
         $featured = [];
@@ -47,12 +50,8 @@ class TwitterController extends CommandController
             if ($placeholder instanceof ImagePlaceholder and $placeholder->image) {
                 $resource_image = $placeholder->image;
 
-                if (filter_var($placeholder->image, FILTER_VALIDATE_URL)) {
-                    $resource_image = Storage::downloadImage($placeholder->image);
-                }
-
                 if (!is_file($resource_image)) {
-                    $resource_image = Storage::root() . $placeholder->image;
+                    $resource_image = $images_dir . '/' . $placeholder->image;
                 }
 
                 $placeholder->apply($template->getResource(), ['image_file' => $resource_image]);
