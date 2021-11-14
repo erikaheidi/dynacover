@@ -19,13 +19,16 @@ class TwitterController extends CommandController
             $template_file = $this->getParam('template');
         }
 
-        if (!is_file(Storage::root() . $template_file)) {
-            $this->getPrinter()->error("Template not found.");
-            return 1;
+        if (!is_file($template_file)) {
+            $template_file = Storage::root() . '/app/Resources/templates/' . $template_file;
+            if (!is_file($template_file)) {
+                $this->getPrinter()->error("Template not found.");
+                return 1;
+            }
         }
 
         $save_path = Storage::root() . 'latest_header.png';
-        $template = Template::create(Storage::root() . $template_file);
+        $template = Template::create($template_file);
 
         $featured = [];
         //build sources
@@ -42,7 +45,17 @@ class TwitterController extends CommandController
          */
         foreach ($template->placeholders as $key => $placeholder) {
             if ($placeholder instanceof ImagePlaceholder and $placeholder->image) {
-                $placeholder->apply($template->getResource(), ['image_file' => Storage::root() . $placeholder->image]);
+                $resource_image = $placeholder->image;
+
+                if (filter_var($placeholder->image, FILTER_VALIDATE_URL)) {
+                    $resource_image = Storage::downloadImage($placeholder->image);
+                }
+
+                if (!is_file($resource_image)) {
+                    $resource_image = Storage::root() . $placeholder->image;
+                }
+
+                $placeholder->apply($template->getResource(), ['image_file' => $resource_image]);
                 continue;
             }
 
