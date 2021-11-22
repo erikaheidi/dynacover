@@ -1,4 +1,4 @@
-## About
+## Dynacover
 
 Dynacover is a PHP GD + TwitterOAuth CLI app to dynamically generate Twitter header images and upload them via the API. This enables you to build cool little tricks, like showing your latest followers or GitHub sponsors, your latest content created, a qrcode to something, a progress bar for a goal, and whatever you can think of.
 
