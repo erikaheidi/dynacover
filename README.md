@@ -9,7 +9,7 @@ You can run Dynacover in three different ways:
 - as a **GitHub action**: the easiest way to run Dynacover is by setting it up in a public repository with [GitHub Actions](https://docs.github.com/en/actions), using repository secrets for credentials. [Follow this step-by-step guide](https://github.com/erikaheidi/dynacover/wiki/Setting-Up-Dynacover-with-GitHub-Actions) to set this up - no coding required.
 - with **Docker**: you can use the public [erikaheidi/dynacover](https://hub.docker.com/repository/docker/erikaheidi/dynacover) Docker image to run Dynacover with a single command, no PHP required. [Follow this guide](https://github.com/erikaheidi/dynacover/wiki/Running-Dynacover-with-Docker) to set this up.
   - to further customize your cover, you can clone the [dynacover repo](https://hub.docker.com/repository/docker/erikaheidi/dynacover) to customize banner resources (JSON template and header images, both located at `app/Resources`), then build a local copy of the Dynacover Docker image to use your custom changes.
-- with a **PHP CLI environment**: this will require `php-cli` 7.4+, Composer, and a few extensions: `php-gd`, `php-mbstring`, `php-curl`, and `php-json`. [Follow this guide](https://github.com/erikaheidi/dynacover/wiki/Running-Dynacover-on-a-PHP-CLI-environment) to set it up.
+- with a **PHP CLI environment**: this will require `php-cli` 8.1+, Composer, and a few extensions: `php-gd`, `php-mbstring`, `php-curl`, and `php-json`. [Follow this guide](https://github.com/erikaheidi/dynacover/wiki/Running-Dynacover-on-a-PHP-CLI-environment) to set it up.
 
 ### Obtaining Required Tokens
 

@@ -8,7 +8,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 class FollowersController extends CommandController
 {
-    public function handle()
+    public function handle(): void
     {
         /** @var TwitterServiceProvider $twitter */
         $twitter = $this->getApp()->twitter;
@@ -24,6 +24,5 @@ class FollowersController extends CommandController
         }
 
         $this->getPrinter()->info("Finished.");
-        return 0;
     }
 }

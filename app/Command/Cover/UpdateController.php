@@ -7,7 +7,7 @@ use Minicli\Command\CommandController;
 
 class UpdateController extends CommandController
 {
-    public function handle()
+    public function handle(): void
     {
         $template_file = $this->hasParam('template') ? $this->getParam('template') : $this->getApp()->config->default_template;
 

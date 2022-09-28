@@ -11,7 +11,10 @@ use Minicli\Command\CommandController;
 
 class TwitterController extends CommandController
 {
-    public function handle(): int
+    /**
+     * @throws \Exception
+     */
+    public function handle(): void
     {
         $template_dir = $this->getApp()->config->templates_dir;
         $template_file = $this->getApp()->config->default_template;
@@ -25,8 +28,7 @@ class TwitterController extends CommandController
         if (!is_file($template_file)) {
             $template_file = $template_dir . '/' . $template_file;
             if (!is_file($template_file)) {
-                $this->getPrinter()->error("Template $template_file not found.");
-                return 1;
+                throw new \Exception("Template $template_file not found.");
             }
         }
 
@@ -63,7 +65,5 @@ class TwitterController extends CommandController
 
         $template->write($save_path);
         $this->getPrinter()->info("Finished generating cover at $save_path, using $template_file as template.");
-
-        return 0;
     }
 }

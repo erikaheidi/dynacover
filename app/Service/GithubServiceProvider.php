@@ -20,7 +20,7 @@ class GithubServiceProvider implements ServiceInterface
 
     static string $API_ENDPOINT = "https://api.github.com/graphql";
 
-    public function load(App $app)
+    public function load(App $app): void
     {
         $this->agent = new Client();
         $this->token = $app->config->github_api_bearer;

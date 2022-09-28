@@ -10,13 +10,13 @@ class DefaultController extends CommandController
     /** @var  array */
     protected $command_map = [];
 
-    public function boot(App $app)
+    public function boot(App $app): void
     {
         parent::boot($app);
-        $this->command_map = $app->command_registry->getCommandMap();
+        $this->command_map = $app->commandRegistry->getCommandMap();
     }
     
-    public function handle()
+    public function handle(): void
     {
         $this->getPrinter()->info('Available Commands');
 

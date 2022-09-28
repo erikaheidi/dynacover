@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff2d15be925595100cccb7157e46e9c4",
+    "content-hash": "a5bc7912e73ac3b7c52cd20567b14fa1",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -69,16 +69,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.10",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "9fdb22c2e97a614657716178093cd1da90a64aa8"
+                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/9fdb22c2e97a614657716178093cd1da90a64aa8",
-                "reference": "9fdb22c2e97a614657716178093cd1da90a64aa8",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/30897edbfb15e784fe55587b4f73ceefd3c4d98c",
+                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +90,7 @@
                 "phpstan/phpstan": "^0.12.55",
                 "psr/log": "^1.0",
                 "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0"
+                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -125,7 +125,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.2.10"
+                "source": "https://github.com/composer/ca-bundle/tree/1.3.3"
             },
             "funding": [
                 {
@@ -141,27 +141,27 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-07T13:58:28+00:00"
+            "time": "2022-07-20T07:14:26+00:00"
         },
         {
             "name": "erikaheidi/gdaisy",
-            "version": "0.1.6",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erikaheidi/gdaisy.git",
-                "reference": "2c9bdcb602b4118e6e17b588b2497c81a052dfc0"
+                "reference": "eaf23e5d047d0077457c5215329f00e3417e80d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erikaheidi/gdaisy/zipball/2c9bdcb602b4118e6e17b588b2497c81a052dfc0",
-                "reference": "2c9bdcb602b4118e6e17b588b2497c81a052dfc0",
+                "url": "https://api.github.com/repos/erikaheidi/gdaisy/zipball/eaf23e5d047d0077457c5215329f00e3417e80d2",
+                "reference": "eaf23e5d047d0077457c5215329f00e3417e80d2",
                 "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
                 "ext-json": "*",
-                "minicli/minicli": "^2.2",
-                "php": "^7.4|^8.0"
+                "minicli/minicli": "^3.2",
+                "php": "^8.1"
             },
             "require-dev": {
                 "pestphp/pest": "^1.0"
@@ -183,9 +183,9 @@
             "description": "php-gd templating system",
             "support": {
                 "issues": "https://github.com/erikaheidi/gdaisy/issues",
-                "source": "https://github.com/erikaheidi/gdaisy/tree/0.1.6"
+                "source": "https://github.com/erikaheidi/gdaisy/tree/0.3.1"
             },
-            "time": "2021-06-30T16:55:26+00:00"
+            "time": "2022-09-28T16:07:04+00:00"
         },
         {
             "name": "minicli/curly",
@@ -229,32 +229,31 @@
         },
         {
             "name": "minicli/minicli",
-            "version": "2.2.1",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minicli/minicli.git",
-                "reference": "b359a740b7dc258acaf52d4373cac5f545705b33"
+                "reference": "2d31b303461d0ec1f8c6d0be00f8b26be8766fbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minicli/minicli/zipball/b359a740b7dc258acaf52d4373cac5f545705b33",
-                "reference": "b359a740b7dc258acaf52d4373cac5f545705b33",
+                "url": "https://api.github.com/repos/minicli/minicli/zipball/2d31b303461d0ec1f8c6d0be00f8b26be8766fbe",
+                "reference": "2d31b303461d0ec1f8c6d0be00f8b26be8766fbe",
                 "shasum": ""
             },
             "require": {
                 "ext-readline": "*",
-                "php": ">=7.3"
+                "php": ">=8"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
+                "friendsofphp/php-cs-fixer": "^3.5",
                 "pestphp/pest": "^1.0",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Minicli\\": "src/",
-                    "Assets\\": "tests/Assets"
+                    "Minicli\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -269,7 +268,7 @@
             ],
             "support": {
                 "issues": "https://github.com/minicli/minicli/issues",
-                "source": "https://github.com/minicli/minicli/tree/2.2.1"
+                "source": "https://github.com/minicli/minicli/tree/3.2.1"
             },
             "funding": [
                 {
@@ -277,7 +276,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-08T15:36:01+00:00"
+            "time": "2022-09-23T09:04:22+00:00"
         }
     ],
     "packages-dev": [],
@@ -291,5 +290,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
