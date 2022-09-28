@@ -12,7 +12,7 @@ class TwitterServiceProvider implements ServiceInterface
 {
     public TwitterOAuth $client;
 
-    public function load(App $app)
+    public function load(App $app): void
     {
         $api_token = $app->config->twitter_consumer_key;
         $api_secret = $app->config->twitter_consumer_secret;

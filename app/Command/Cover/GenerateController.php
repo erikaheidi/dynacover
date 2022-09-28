@@ -10,7 +10,7 @@ use App\Storage;
 
 class GenerateController extends CommandController
 {
-    public function handle()
+    public function handle(): void
     {
         $template_file = $this->hasParam('template') ? $this->getParam('template') : $this->getApp()->config->default_template;
 

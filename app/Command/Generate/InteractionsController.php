@@ -12,7 +12,7 @@ use Minicli\Command\CommandController;
 
 class InteractionsController extends CommandController
 {
-    public function handle(): int
+    public function handle(): void
     {
         //Start by building a dynamic template
         $template = new Template('twitter-interactions', [
@@ -104,7 +104,5 @@ class InteractionsController extends CommandController
         $save_path = Storage::root() . 'latest_header.png';
         $template->write($save_path);
         $this->getPrinter()->info("Finished generating cover at $save_path.");
-
-        return 0;
     }
 }
